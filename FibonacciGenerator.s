@@ -39,4 +39,7 @@ main:
  	addi $v0, $0, 1  # add system call number of 1 to $v0 to request print integer
 	move $a0, $t2 # move the value in $t2 to $a0 as parameter to print in the console.
 	syscall # Make request to OS about $v0 with "printinteger" with argument address $a0 "0"
-	
+
+ 	addi, $v0, $0, 4  # add the immediate "4" to register $v0 - $v0 when stores system call number of 4 requests print-string service from OS.
+	la $a0, newline # load the address of he newline stored data into $a0 - $a0 is used to pass arguments to system, in my case to have a new line OS service.
+	syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "\n"	
