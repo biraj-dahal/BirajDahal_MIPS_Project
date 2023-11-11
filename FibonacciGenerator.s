@@ -10,3 +10,11 @@
 	newline: .ascii "\n" #using it to store address of a new line character
 .text
 .globl main
+
+# go to main branch
+main:
+	#initial question
+	addi $v0, $0, 4  # add the immediate "4" to register $v0 - $v0 when stores system call number of 4 requests print-string service from OS.
+	la $a0, askUser # load the address of he askUser stored data into $a0 - $a0 is used to pass arguments to system, in my case to print string OS service.
+	syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "askUser"
+
