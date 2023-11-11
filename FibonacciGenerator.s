@@ -65,3 +65,7 @@ main:
 		la $a0, newline # load the address of he newline stored data into $a0 - $a0 is used to pass arguments to system, in my case to have a new line OS service.
 		syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "\n"	
 		
+		move $t2, $t3 # make swaps for t3 into $t2, no need to preserve $t2
+		move $t3, $t4 #make swaps for $t4 into $t3, no need to preserve $t3 since already stored in $t2
+		addi $t1, $t1, 1 # increase our counter by 1 for each number printed our for bibnacci series.
+		bne $t1, $t0, recursiveStep # base case for recursive Step, until $t1 reaches N, repeat the recursiveStep Label to print consecutive number
