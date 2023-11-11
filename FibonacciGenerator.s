@@ -69,3 +69,6 @@ main:
 		move $t3, $t4 #make swaps for $t4 into $t3, no need to preserve $t3 since already stored in $t2
 		addi $t1, $t1, 1 # increase our counter by 1 for each number printed our for bibnacci series.
 		bne $t1, $t0, recursiveStep # base case for recursive Step, until $t1 reaches N, repeat the recursiveStep Label to print consecutive number
+
+  	addi $v0, $0, 10 # add the immediate "10" to register $v0 - $v0 when stores system call number of 10 requests "exit" service from OS to end the program.
+	syscall # Make request to OS about ending the program
