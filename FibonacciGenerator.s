@@ -18,3 +18,14 @@ main:
 	la $a0, askUser # load the address of he askUser stored data into $a0 - $a0 is used to pass arguments to system, in my case to print string OS service.
 	syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "askUser"
 
+	# Working so far
+
+	addi $v0, $0, 5 # load the immediate "5" to register $v0 - $v0 when stores system call number of 5 requests read-integer service from OS from the console input.
+	syscall # make the request to OS about $v0 with "read integer" which takes in integer from user, and temp store to $v0
+	add $t0,$0, $v0 # add temporarily stored input value in $v0 to $0 -which is 0
+
+	# Some Error when ever input number higher than 10, storing not the number but a character instead.(October 29, 2023)
+	# Confirmed by printing out integer. Even if garbage value stored, when printing out, it is working fine.(October 29, 2023) 
+	# for printing the retrieved value(to check):	li $v0, 1 	move $a0, $t0 		syscall
+
+	blt $t0, 25, exitOnInvalid # go to branch exitOnInvalid if the value stored in register $t0 is less than 25 - branch on less than
