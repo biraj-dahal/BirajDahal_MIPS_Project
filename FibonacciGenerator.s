@@ -77,3 +77,9 @@ exitOnInvalid:
 	addi, $v0, $0, 4  # add the immediate "4" to register $v0 - $v0 when stores system call number of 4 requests print-string service from OS.
 	la $a0, invalid # load the address of he inValid stored data into $a0 - $a0 is used to pass arguments to system, in my case to print string OS service.
 	syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "invalid"	
+
+	la $a0, newline # load the address of he newline stored data into $a0 - $a0 is used to pass arguments to system, in my case to have a new line OS service.
+	syscall # Make request to OS about $v0 with "printstring" with argument address $a0 "\n"	
+	
+	j main # repeatedly jump back to branch "main" so that we ask to the user a valid number until valid number(N>=25 is not returned)
+
