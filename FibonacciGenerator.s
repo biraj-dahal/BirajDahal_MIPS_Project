@@ -29,3 +29,9 @@ main:
 	# for printing the retrieved value(to check):	li $v0, 1 	move $a0, $t0 		syscall
 
 	blt $t0, 25, exitOnInvalid # go to branch exitOnInvalid if the value stored in register $t0 is less than 25 - branch on less than
+
+	# if its valid number proceed further in main branch, if not we already exit.
+
+	addi $t1, $0, 2 # counter to later check to run from 3 to N and end the program the moment value stored in $t1 == N, 2 are already first two are already printed before recursive jumps.
+	addi $t2, $0, 0 # t2 stores starting value of 0
+	addi $t3, $0, 1 # t3 stores the starting value of 1
