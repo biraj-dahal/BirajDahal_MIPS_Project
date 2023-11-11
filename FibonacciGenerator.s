@@ -35,3 +35,8 @@ main:
 	addi $t1, $0, 2 # counter to later check to run from 3 to N and end the program the moment value stored in $t1 == N, 2 are already first two are already printed before recursive jumps.
 	addi $t2, $0, 0 # t2 stores starting value of 0
 	addi $t3, $0, 1 # t3 stores the starting value of 1
+
+ 	addi $v0, $0, 1  # add system call number of 1 to $v0 to request print integer
+	move $a0, $t2 # move the value in $t2 to $a0 as parameter to print in the console.
+	syscall # Make request to OS about $v0 with "printinteger" with argument address $a0 "0"
+	
